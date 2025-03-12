@@ -22,7 +22,7 @@ add.addEventListener('click', () => {
         inputTitle.value = "";
         inputAuthor.value = "";
         inputPages.value = "";
-        selectRead.value = "option1"; // Устанавливаем дефолтное значение
+        selectRead.value = "option1";
     } else {
         addContainer.style.display = 'none';
         add.style.transform = 'rotate(0deg)';
