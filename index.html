@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/png" href="./images/logo/bnb_crypto_icon_264371.svg">
+    <title>library</title>
+</head>
+
+<body>
+    <header>
+        <section class="header">
+            <div class="header__container">
+                <div class="header__logo">
+
+                    <h1 class="header__title">Virtual Library</h1>
+
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <section class="main">
+
+        <div class="main__library-container">
+        </div>
+
+
+
+        <div class="main__add-container">
+
+
+            <h2 class="add-container__new-Boock">New book</h2>
+            <button class="add__container-x">+</button>
+
+            <form action="#" id="main__form">
+
+                <label for="Title">Title:
+                    <input type="text" placeholder="Boock title" maxlength="10" id="title">
+                </label>
+
+                <label for="Author">Author:
+                    <input type="text" placeholder="Author" maxlength="10" id="author">
+                </label>
+
+                <label for="Pages">Number of pages:
+                    <input type="number" min="0" max="100" placeholder="Pages" id="pages">
+                </label>
+
+                <label for="Read">Read the book?
+                    <select id="read">
+                        <option value="option1">Yes📖</option>
+                        <option value="option2">No📘</option>
+                    </select>
+                </label>
+
+                <button class="form__button" type="submit">Submit</button>
+            </form>
+
+        </div>
+
+        <button class="main__add-book">+</button>
+
+    </section>
+
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
