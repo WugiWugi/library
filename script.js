@@ -13,26 +13,29 @@ const buttonAdd = document.querySelector('.form__button')
 
 let clickCount = 0;
 
+function resetAddButton() {
+    addContainer.classList.remove('active')
+    add.classList.remove('addActive')
+    clickCount = 0
+}
+
 add.addEventListener('click', () => {
     clickCount++;
     if (clickCount % 2 === 1) {
-        addContainer.style.display = 'block';
-        add.style.transform = 'rotate(50deg)';
-        
+        addContainer.classList.toggle('active')
+        add.classList.toggle('addActive')
+
         inputTitle.value = "";
         inputAuthor.value = "";
         inputPages.value = "";
         selectRead.value = "option1";
     } else {
-        addContainer.style.display = 'none';
-        add.style.transform = 'rotate(0deg)';
+        resetAddButton()
     }
 });
 
 addX.addEventListener('click', () => {
-    addContainer.style.display = 'none'
-    add.style.transform = 'rotate(0deg)';
-    clickCount = 0
+    resetAddButton()
 });
 
 
@@ -45,16 +48,19 @@ function Book(title, author, pages, read) {
     this.read = `Read? ${read}`
 }
 
-function addBookToLibrary() {
+const addBookToLibrary = () => buttonAdd.addEventListener('click', handleAddButtonClick)
 
-    buttonAdd.addEventListener('click', () => {
-        const newBoock = new Book(inputTitle.value, inputAuthor.value, inputPages.value, selectRead.value === 'option1' ? 'Yes📖' : 'No📘')
-        myLibrary.push(newBoock)
-        addContainer.style.display = 'none'
-        add.style.transform = 'rotate(0deg)';
-        clickCount = 0
-        renderBooks();
-    })
+
+function handleAddButtonClick() {
+    if (!inputTitle.value || !inputAuthor.value || !inputPages.value) {
+    alert("Пожалуйста, заполните все поля.");
+    return;}
+
+    const newBoock = new Book(inputTitle.value, inputAuthor.value, inputPages.value, selectRead.value === 'option1' ? 'Yes📖' : 'No📘')
+    myLibrary.push(newBoock)
+
+    resetAddButton()
+    renderBooks();
 }
 
 function renderBooks() {
